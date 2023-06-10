@@ -23,7 +23,7 @@ public class HolidayListsController {
 		this.holidayListsServices = holidayListsServices;
 	}
 
-	@GetMapping("/getAllNotices")
+	@GetMapping("/getAllHollidays")
 	public ResponseEntity<List<HolidayLists>> getAllNotices() {
 		return ResponseEntity.ok(holidayListsServices.getAllHolidays());
 	}
