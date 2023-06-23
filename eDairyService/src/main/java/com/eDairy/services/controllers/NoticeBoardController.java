@@ -24,6 +24,10 @@ public class NoticeBoardController {
 
     @GetMapping("/getAllNotices")
     public ResponseEntity<List<NoticeBoardDetails>> getAllNotices(){
+    	
+    	System.out.println(" in controler getAllNotices");
+
+    	
     		return ResponseEntity.ok(noticeBoardService.getAllNotices());
     }
     

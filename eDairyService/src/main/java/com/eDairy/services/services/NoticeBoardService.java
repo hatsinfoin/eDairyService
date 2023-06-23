@@ -15,7 +15,13 @@ public class NoticeBoardService {
 	NoticeBoardRepo noticeBoardRepo;
 
 	public List<NoticeBoardDetails> getAllNotices() {
-		return noticeBoardRepo.findAll();
+    	System.out.println(" in NoticeBoardService  getAllNotices");
+
+    	List<NoticeBoardDetails>  l = noticeBoardRepo.findAll(); 
+    	System.out.println(" in NoticeBoardService  getAllNotices");
+    	System.out.println(" in NoticeBoardService  list "+l);
+
+		return l;
 	}
 
 	public NoticeBoardDetails saveNoticeBoard(NoticeBoardDetails noticeBoardDetails) {
