@@ -27,6 +27,12 @@ public class HolidayListsController {
 	public ResponseEntity<List<HolidayLists>> getAllNotices() {
 		return ResponseEntity.ok(holidayListsServices.getAllHolidays());
 	}
+	
+	@GetMapping("/getAllHolidaysByBranchId/{branchId}")
+	public ResponseEntity<List<HolidayLists>> getAllHolidaysByBranchId(@PathVariable String branchId) {
+		return ResponseEntity.ok(holidayListsServices.getAllHolidaysByBranchId(branchId));
+	}
+	
 
 	@PostMapping("/saveHolidaysList")
 	public ResponseEntity<HolidayLists> saveNoticeBoard(@RequestBody HolidayLists holidayLists) {

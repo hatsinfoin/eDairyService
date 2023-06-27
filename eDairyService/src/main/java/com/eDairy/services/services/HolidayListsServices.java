@@ -33,6 +33,9 @@ public class HolidayListsServices {
 	public List<HolidayLists> getAllHolidays() {
 		return holidayListsRepository.findAll();
 	}
+	public List<HolidayLists> getAllHolidaysByBranchId(String branchId) {
+		return getholidayListByField("branchId",branchId);
+	}
 
 	public HolidayLists SaveHolidaysLists(HolidayLists holidayLists) {
 		return holidayListsRepository.save(holidayLists);
@@ -44,9 +47,14 @@ public class HolidayListsServices {
 
 	public  List<HolidayLists> getholidayByDate(String holidayDate) {
 
+		return getholidayListByField("holidayDate",holidayDate);	 
+	
+	}
+	
+	public  List<HolidayLists> getholidayListByField(String fieldName,String fieldValue) {
 
-		System.out.println("holidayDate = " + holidayDate);
-		final List<HolidayLists> student = new ArrayList<>();
+		System.out.println("fieldValue = " + fieldValue);
+		final List<HolidayLists> holidayList = new ArrayList<>();
 
 		MongoDatabase database = client.getDatabase("schoolcluster");
 		MongoCollection<Document> collection = database.getCollection("HolidayLists");
@@ -54,20 +62,18 @@ public class HolidayListsServices {
 		AggregateIterable<Document> result = collection.aggregate(Arrays.asList(new Document("$search", 
 			    new Document("text", 
 			    		// Search5657
-			    new Document("query",holidayDate)
-			                .append("path",  Arrays.asList("holidayDate"))))));
+			    new Document("query",fieldValue)
+			                .append("path",  Arrays.asList(fieldName))))));
 		System.out.println("after AggregateIterable ");
 	
 		
 		
-		result.forEach(doc -> student.add(converter.read(HolidayLists.class, doc)));
-		System.out.println("student " + student);
-		return student;
+		result.forEach(doc -> holidayList.add(converter.read(HolidayLists.class, doc)));
+		System.out.println("student " + holidayList);
+		return holidayList;
 		 
 	
 	}
-	
-	
 	
 
 }

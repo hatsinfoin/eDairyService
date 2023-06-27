@@ -6,6 +6,6 @@ import com.eDairy.services.model.Student;
 
 public interface StudentSearchRepository {
 	
-	List<Student> findByRollNo(String rollNo);
+	List<Student> findByRollNo(String stRollNo);
 
 }

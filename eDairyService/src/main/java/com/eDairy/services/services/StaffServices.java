@@ -39,7 +39,7 @@ public class StaffServices {
 
 	public List<Staff> findByStaffId(String staffId) {
 
-		System.out.println("rollNo = " + staffId);
+		System.out.println("staffId = " + staffId);
 		final List<Staff> officeStaff = new ArrayList<>();
 
 		MongoDatabase database = client.getDatabase("schoolcluster");

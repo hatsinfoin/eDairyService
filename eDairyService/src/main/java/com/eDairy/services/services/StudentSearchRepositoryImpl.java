@@ -26,9 +26,9 @@ public class StudentSearchRepositoryImpl implements StudentSearchRepository {
 	MongoConverter converter;
 
 	@Override
-	public List<Student> findByRollNo(String rollNo) {
+	public List<Student> findByRollNo(String stRollNo) {
 
-		System.out.println("rollNo = " + rollNo);
+		System.out.println("stRollNo = " + stRollNo);
 		final List<Student> student = new ArrayList<>();
 
 		MongoDatabase database = client.getDatabase("schoolcluster");
@@ -37,8 +37,8 @@ public class StudentSearchRepositoryImpl implements StudentSearchRepository {
 		AggregateIterable<Document> result = collection.aggregate(Arrays.asList(new Document("$search", 
 			    new Document("text", 
 			    		// Search5657
-			    new Document("query",rollNo)
-			                .append("path",  Arrays.asList("rollNo", "name"))))));
+			    new Document("query",stRollNo)
+			                .append("path",  Arrays.asList("stRollNo", "name"))))));
 		System.out.println("after AggregateIterable ");
 	
 		

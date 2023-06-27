@@ -6,6 +6,6 @@ import com.eDairy.services.model.Student;
 
 public interface StudentRepo extends MongoRepository<Student, String> {
 	
-	Student findByRollNo(String rollNo);
+	Student findBystRollNo(String stRollNo);
 
 }

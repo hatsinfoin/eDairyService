@@ -1,5 +1,7 @@
 package com.eDairy.services.model;
 
+import java.util.List;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -8,11 +10,9 @@ import lombok.ToString;
 
 @Data
 @ToString
-@Document(collection = "BranchDetails")
-public class BranchDetails {
+ public class BranchDetailsStudentList {
 	
-	@Id
-	private String id;
+ 	private String id;
 	private String branchId;
 	private String brName;
 	private String brAddress1;
@@ -20,6 +20,7 @@ public class BranchDetails {
 	private String brAddress2;
 	private String brPinNumber;
 	private String brState;
+	private List<Student> student;
 	public String getId() {
 		return id;
 	}
@@ -69,12 +70,22 @@ public class BranchDetails {
 	public void setBrState(String brState) {
 		this.brState = brState;
 	}
+	
+	
+	
+	public List<Student> getStudent() {
+		return student;
+	}
+	public void setStudent(List<Student> student) {
+		this.student = student;
+	}
 	@Override
 	public String toString() {
-		return "BranchDetails [id=" + id + ", branchId=" + branchId + ", brName=" + brName + ", brAddress1="
+		return "BranchDetailsStudentList [id=" + id + ", branchId=" + branchId + ", brName=" + brName + ", brAddress1="
 				+ brAddress1 + ", brPhoneNumber=" + brPhoneNumber + ", brAddress2=" + brAddress2 + ", brPinNumber="
-				+ brPinNumber + ", brState=" + brState + "]";
+				+ brPinNumber + ", brState=" + brState + ", student=" + student + "]";
 	}
+	 
 	 
  	
 	

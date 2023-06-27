@@ -10,17 +10,25 @@ import lombok.Data;
 public class NoticeBoardDetails {
 	
 	@Id
-	private String noticeId;
+	private String id;
+	private String branchId;
 	private String noticeDepartment;
-	private String noticeBy;
+	private String noticeTitle;
 	private String noticeDetails;
+	private String noticeBy;
 	private String noticeStartDate;
 	private String noticeEndDate;
-	public String getNoticeId() {
-		return noticeId;
+	public String getId() {
+		return id;
 	}
-	public void setNoticeId(String noticeId) {
-		this.noticeId = noticeId;
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getBranchId() {
+		return branchId;
+	}
+	public void setBranchId(String branchId) {
+		this.branchId = branchId;
 	}
 	public String getNoticeDepartment() {
 		return noticeDepartment;
@@ -28,17 +36,23 @@ public class NoticeBoardDetails {
 	public void setNoticeDepartment(String noticeDepartment) {
 		this.noticeDepartment = noticeDepartment;
 	}
-	public String getNoticeBy() {
-		return noticeBy;
+	public String getNoticeTitle() {
+		return noticeTitle;
 	}
-	public void setNoticeBy(String noticeBy) {
-		this.noticeBy = noticeBy;
+	public void setNoticeTitle(String noticeTitle) {
+		this.noticeTitle = noticeTitle;
 	}
 	public String getNoticeDetails() {
 		return noticeDetails;
 	}
 	public void setNoticeDetails(String noticeDetails) {
 		this.noticeDetails = noticeDetails;
+	}
+	public String getNoticeBy() {
+		return noticeBy;
+	}
+	public void setNoticeBy(String noticeBy) {
+		this.noticeBy = noticeBy;
 	}
 	public String getNoticeStartDate() {
 		return noticeStartDate;
@@ -54,10 +68,10 @@ public class NoticeBoardDetails {
 	}
 	@Override
 	public String toString() {
-		return "NoticeBoardDetails [noticeId=" + noticeId + ", noticeDepartment=" + noticeDepartment + ", noticeBy="
-				+ noticeBy + ", noticeDetails=" + noticeDetails + ", noticeStartDate=" + noticeStartDate
-				+ ", noticeEndDate=" + noticeEndDate + "]";
+		return "NoticeBoardDetails [id=" + id + ", branchId=" + branchId + ", noticeDepartment=" + noticeDepartment
+				+ ", noticeTitle=" + noticeTitle + ", noticeDetails=" + noticeDetails + ", noticeBy=" + noticeBy
+				+ ", noticeStartDate=" + noticeStartDate + ", noticeEndDate=" + noticeEndDate + "]";
 	}
-	
+	 
 	
 }

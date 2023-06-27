@@ -9,36 +9,46 @@ import lombok.Data;
 public class HolidayLists {
 
 	@Id
-	private String SNo;
-	private String holidayName;
+	private String id;
+	private String branchId;
 	private String holidayDate;
-
-	public String getSNo() {
-		return SNo;
+	private String holidayTitle;
+	private String holidayDiscription;
+	public String getId() {
+		return id;
 	}
-
-	public void setSNo(String sNo) {
-		SNo = sNo;
+	public void setId(String id) {
+		this.id = id;
 	}
-
-	public String getHolidayName() {
-		return holidayName;
+	public String getBranchId() {
+		return branchId;
 	}
-
-	public void setHolidayName(String holidayName) {
-		this.holidayName = holidayName;
+	public void setBranchId(String branchId) {
+		this.branchId = branchId;
 	}
-
 	public String getHolidayDate() {
 		return holidayDate;
 	}
-
 	public void setHolidayDate(String holidayDate) {
 		this.holidayDate = holidayDate;
 	}
-
+	public String getHolidayTitle() {
+		return holidayTitle;
+	}
+	public void setHolidayTitle(String holidayTitle) {
+		this.holidayTitle = holidayTitle;
+	}
+	public String getHolidayDiscription() {
+		return holidayDiscription;
+	}
+	public void setHolidayDiscription(String holidayDiscription) {
+		this.holidayDiscription = holidayDiscription;
+	}
 	@Override
 	public String toString() {
-		return "HolidayLists [SNo=" + SNo + ", holidayName=" + holidayName + ", holidayDate=" + holidayDate + "]";
+		return "HolidayLists [id=" + id + ", branchId=" + branchId + ", holidayDate=" + holidayDate + ", holidayTitle="
+				+ holidayTitle + ", holidayDiscription=" + holidayDiscription + "]";
 	}
+ 
+	
 }

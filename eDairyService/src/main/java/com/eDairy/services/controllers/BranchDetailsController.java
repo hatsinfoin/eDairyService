@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.eDairy.services.model.BranchDetails;
+import com.eDairy.services.model.BranchDetailsStudentList;
 import com.eDairy.services.model.Student;
 import com.eDairy.services.services.BranchDetailsServices;
 
@@ -43,5 +44,11 @@ public class BranchDetailsController {
 		return branchDetailsServices.findByBranchId(text);
 	}
     
-
+    @GetMapping("/findAllBStudentsByBranchId/{branchId}")
+	@ResponseBody
+	public List<BranchDetailsStudentList> findAllBStudentsByBranchId(@PathVariable String branchId) {
+		System.out.println("findByRollNo branchId = "+branchId);
+		return branchDetailsServices.findAllBStudentsByBranchId(branchId);
+	}
+    
 }
