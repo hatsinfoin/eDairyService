@@ -2,6 +2,8 @@ package com.eDairy.services.services;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.List;
 
 import org.bson.Document;
@@ -44,6 +46,11 @@ public class StandardService {
 	public List<Standard> saveStandardLists(List<Standard> Standard) {
 		return standardRepo.saveAll(Standard);
 	}
+	
+	public void deleteStandard(Standard Standard) {
+		 standardRepo.delete(Standard);
+	}
+	
 
 	public  List<StandardSubjects> getStandardById(String standardId) {
 
@@ -62,6 +69,27 @@ public class StandardService {
 
 		return standardRepo.findAll();
 	
+	}
+	
+	public Set<String>  getAllUniqueStandardsBrBrnch(String branchId) {
+		
+		System.out.println("branchId = " + branchId);
+  		Set<String> uniqueStandared = new HashSet<String>();
+		final List<Standard> standardList = new ArrayList<>();
+
+		MongoDatabase database = client.getDatabase("schoolcluster");
+		MongoCollection<Document> collection = database.getCollection("Standard");
+		
+		AggregateIterable<Document> result = collection.aggregate( Arrays.asList(new Document("$match", 
+			    new Document("branchId", branchId))));
+		System.out.println("after AggregateIterable ");
+	
+		
+		
+		result.forEach(doc -> uniqueStandared.add(converter.read(Standard.class,doc).getStandardId()));
+		System.out.println("standardList  2 " + standardList);
+		System.out.println("uniqueStandared  " + uniqueStandared);
+		return uniqueStandared;
 	}
 	
 	public  List<StandardSubjects> getSubjectsByStandardId(String fieldName,String fieldValue) {

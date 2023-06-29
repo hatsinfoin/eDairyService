@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.convert.MongoConverter;
 import org.springframework.stereotype.Service;
 
+import com.eDairy.services.model.Standard;
 import com.eDairy.services.model.Subjects;
 import com.eDairy.services.repository.SubjectsRepo;
 import com.mongodb.client.AggregateIterable;
@@ -80,5 +81,8 @@ public class SubjectsService {
 	
 	}
 	
+	public void deleteSubjects(Subjects subjects) {
+		subjectsRepo.delete(subjects);
+	}
 
 }

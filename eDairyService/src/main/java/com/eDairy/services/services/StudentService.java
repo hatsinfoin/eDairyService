@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.eDairy.services.model.Standard;
 import com.eDairy.services.model.Student;
 import com.eDairy.services.repository.StudentRepo;
 
@@ -25,6 +26,15 @@ public class StudentService {
 		
 		return studentRepo.save(student);
 	}
+	
+	public List<Student> getAllStandards() {
+		return studentRepo.findAll();
+	}
+	
+	public void deleteStudent(Student student) {
+		  studentRepo.delete(student);
+	}
+	
 	
 	
 //	public boolean CheckStudentExists(Student student)

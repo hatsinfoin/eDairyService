@@ -1,6 +1,7 @@
 package com.eDairy.services.controllers;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -44,12 +45,26 @@ public class StandardController {
 		return standardService.findByStandardID(standardId);
 	}
 	
-	  @PostMapping("/saveStandard")
+	@GetMapping("/findByUniqueStandardIDByBranch/{branchId}")
+	public Set<String> findByUniqueStandardIDByBranch(@PathVariable String branchId) {
+		System.out.println("findByUniqueStandardIDByBranch"+branchId);
+		return standardService.getAllUniqueStandardsBrBrnch(branchId);
+	}
+	
+	@PostMapping("/saveStandard")
 	  public Standard saveStandard(@RequestBody Standard Standard) {
 	  
 	 return standardService.saveStandard(Standard);
 	  
 	  }
 	 
-
+	@PostMapping("/deleteStandard")
+	  public boolean deleteStandard(@RequestBody Standard Standard) {
+	  
+	  standardService.deleteStandard(Standard);
+	  
+	  return true;
+	  
+	  }
+	
 }

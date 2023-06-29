@@ -19,28 +19,33 @@ public class SubjectsController {
 	private final SubjectsService SubjectsService;
 
 	public SubjectsController(SubjectsService SubjectsService) {
-	        this.SubjectsService = SubjectsService;
-	       
-	    }
+		this.SubjectsService = SubjectsService;
+
+	}
 
 	@GetMapping("/Subjects/{SubjectsId}")
 	public List<Subjects> getSubjectsById(@PathVariable String subjectsId) {
 		return SubjectsService.getSubjectsById(subjectsId);
 	}
-	
+
 	@GetMapping("/findAllSubjects")
 	public List<Subjects> getAllSubjects() {
 		return SubjectsService.getAllSubjects();
 	}
 
+	@PostMapping("/saveSubjects")
+	public Subjects saveSubjects(@RequestBody Subjects subjects) {
+
+		return SubjectsService.saveSubjects(subjects);
+
+	}
 	
+	@PostMapping("/deleteSubjects")
+	public void deleteSubjects(@RequestBody Subjects subjects) {
+
+		 SubjectsService.deleteSubjects(subjects);
+
+	}
 	
-	  @PostMapping("/saveSubjects")
-	  public Subjects saveSubjects(@RequestBody Subjects subjects) {
-	  
-	 return SubjectsService.saveSubjects(subjects);
-	  
-	  }
-	 
 
 }
