@@ -44,7 +44,13 @@ public class HolidayListsServices {
 	public List<HolidayLists> SaveHolidaysLists(List<HolidayLists> holidayLists) {
 		return holidayListsRepository.saveAll(holidayLists);
 	}
-
+	
+	public void deleteHoliday(HolidayLists holidayLists) {
+		  holidayListsRepository.delete(holidayLists);
+	} 
+	
+	
+	
 	public  List<HolidayLists> getholidayByDate(String holidayDate) {
 
 		return getholidayListByField("holidayDate",holidayDate);	 

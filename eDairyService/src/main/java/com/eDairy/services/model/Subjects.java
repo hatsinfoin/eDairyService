@@ -14,5 +14,6 @@ public class Subjects {
  	private String subjectsId;
 	private String subjectName;
 	private String standardId;
-	private String branchId;	
+	private String branchId;
+	
 }

@@ -1,6 +1,6 @@
 package com.eDairy.services.controllers;
 
-import java.net.URI;
+//import java.net.URI;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
@@ -21,7 +21,7 @@ import com.eDairy.services.services.CommunityService;
 @RestController
 @RequestMapping("/v1/community")
 public class CommunityController {
-
+/*
     private final CommunityService communityService;
 
     public CommunityController(CommunityService communityService) {
@@ -52,5 +52,5 @@ public class CommunityController {
                                               @RequestParam(value = "title") String title) {
         return ResponseEntity.created(URI.create("/v1/community/images"))
                 .body(communityService.postImage(file, title));
-    }
+    }*/
 }

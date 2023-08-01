@@ -45,4 +45,11 @@ public class HolidayListsController {
 		return ResponseEntity.ok(holidayListsServices.getholidayByDate(holidayDate));
 	}
 
+	@PostMapping("/deleteHoliday")
+	public ResponseEntity<String> deleteHoliday(@RequestBody HolidayLists holidayLists) {
+		System.out.println("HolidayLists  - "+holidayLists);
+		holidayListsServices.deleteHoliday(holidayLists);
+		return ResponseEntity.ok("OK");
+	}
+	
 }
